@@ -1,0 +1,74 @@
+:root {
+  --cyan: hsl(180, 66%, 49%);
+  --dark-violet: hsl(257, 27%, 26%);
+  --red: hsl(0, 87%, 67%);
+  --gray: hsl(0, 0%, 75%);
+  --grayish-violet: hsl(257, 7%, 63%);
+  --very-dark-blue: hsl(255, 11%, 22%);
+  --very-dark-violet: hsl(260, 8%, 14%);
+}
+#navbar-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  align-items: center;
+}
+#navbar-section .navbar-left .navbar-logo {
+  font-size: 32px;
+  color: var(--very-dark-blue);
+  font-weight: 700;
+}
+#navbar-section .navbar-left,
+#navbar-section .navbar-right {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+#navbar-section .navbar-left .navbar-item,
+#navbar-section .navbar-right .navbar-right-item {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  color: var(--grayish-violet);
+  font-weight: 700;
+}
+#navbar-section .navbar-right .navbar-right-item .navbar-button {
+  border: none;
+  background-color: var(--cyan);
+  color: #fff;
+  font-weight: 700;
+  padding: 12px 30px;
+  border-radius: 9999px;
+  font-size: 18px;
+}
+
+/* Main Section */
+
+#main-section {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 40px;
+}
+
+#main-section .main-section-left h1 {
+  font-weight: 700;
+  color: var(--very-dark-blue);
+  font-size: 80px;
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+#main-section .main-section-left p {
+  color: var(--grayish-violet);
+  font-size: 26px;
+  line-height: 1.5;
+}
+#main-section .main-section-left .main-section-button {
+  border: none;
+  border-radius: 999px;
+  font-size: 24px;
+  color: #fff;
+  padding: 18px 40px;
+  background-color: var(--cyan);
+  margin-top: 32px;
+}
