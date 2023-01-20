@@ -8,7 +8,19 @@ import facebook from "../../assets/icon-facebook.svg";
 import instagram from "../../assets/icon-instagram.svg";
 import pinterest from "../../assets/icon-pinterest.svg";
 import twitter from "../../assets/icon-twitter.svg";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 const Home = () => {
+  const [url, setUrl] = useState();
+  const [data, setData] = useState();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .get(`https://api.shrtco.de/v2/shorten?url=${url}`)
+      .then((data) => setData(data.data.result));
+  };
+  console.log(data);
   return (
     <>
       <div className="container">
@@ -44,9 +56,14 @@ const Home = () => {
         </main>
 
         <div id="search-section">
-          <form action="">
-            <input type="text" placeholder="Shorten a link here..." />
-            <button> Shorten It! </button>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Shorten a link here..."
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+            />
+            <button type="submit"> Shorten It! </button>
           </form>
         </div>
         <div id="advanced-section">

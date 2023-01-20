@@ -7,6 +7,9 @@
   --very-dark-blue: hsl(255, 11%, 22%);
   --very-dark-violet: hsl(260, 8%, 14%);
 }
+button {
+  cursor: pointer;
+}
 #navbar-section {
   display: flex;
   justify-content: space-between;
