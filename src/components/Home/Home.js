@@ -8,19 +8,39 @@ import facebook from "../../assets/icon-facebook.svg";
 import instagram from "../../assets/icon-instagram.svg";
 import pinterest from "../../assets/icon-pinterest.svg";
 import twitter from "../../assets/icon-twitter.svg";
+import logo from "../../assets/logo.svg";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { useRef } from "react";
 const Home = () => {
   const [url, setUrl] = useState();
   const [data, setData] = useState();
+  const hamburgerOpen = useRef(null);
+  const hamburgerClose = useRef(null);
+  const mobileNav = useRef(null);
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .get(`https://api.shrtco.de/v2/shorten?url=${url}`)
       .then((data) => setData(data.data.result));
   };
-  console.log(data);
+  useEffect(() => {
+    const openHamburger = hamburgerOpen.current;
+    openHamburger.addEventListener("click", () => {
+      const navMobile = mobileNav.current;
+      navMobile.classList.add("open");
+    });
+  }, []);
+  useEffect(() => {
+    const closeHamburger = hamburgerClose.current;
+    closeHamburger.addEventListener("click", () => {
+      const navMobile = mobileNav.current;
+      navMobile.classList.remove("open");
+    });
+  }, []);
+
   return (
     <>
       <div className="container">
@@ -40,7 +60,24 @@ const Home = () => {
             </div>
           </div>
         </navbar>
-
+        <div id="mobile-navbar-section">
+          <div className="mobile-navbar-logo">
+            <img src={logo} alt="" />
+          </div>
+          <div className="mobile-open-icon" ref={hamburgerOpen}>
+            <AiOutlineMenu />
+          </div>
+        </div>
+        <div id="open-navbar-section" ref={mobileNav} className="close">
+          <div ref={hamburgerClose} className="hamburgerClose">
+            <AiOutlineClose />
+          </div>
+          <div>Features</div>
+          <div>Pricing</div>
+          <div>Resources</div>
+          <div>Login</div>
+          <div>Sign Up</div>
+        </div>
         <main id="main-section">
           <div className="main-section-left">
             <h1>More than just shorter links</h1>
