@@ -45,12 +45,14 @@
 /* Main Section */
 
 #main-section {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: auto auto;
   padding: 40px;
+  margin-top: 90px;
 }
-
+#main-section .main-section-left {
+  width: 700px;
+}
 #main-section .main-section-left h1 {
   font-weight: 700;
   color: var(--very-dark-blue);
@@ -71,4 +73,185 @@
   padding: 18px 40px;
   background-color: var(--cyan);
   margin-top: 32px;
+}
+#main-section .main-section-right img {
+  position: absolute;
+  right: 0;
+}
+#search-section {
+  margin-top: 130px;
+  position: relative;
+}
+
+#search-section form {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-image: url("../../assets/bg-shorten-desktop.svg");
+  background-size: 100%;
+  height: 120px;
+  background-color: var(--dark-violet);
+  padding: 30px 60px;
+  border-radius: 20px;
+}
+#search-section form input {
+  width: 85%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 30px;
+  font-size: 20px;
+}
+#search-section form input::placeholder {
+  font-size: 20px;
+}
+#search-section form button {
+  width: 15%;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--cyan);
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 20px;
+}
+#advanced-section {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 100px;
+}
+#advanced-section .advanced-title {
+  text-align: center;
+  font-weight: 700;
+  color: var(--very-dark-blue);
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+#advanced-section .advanced-description {
+  color: var(--grayish-violet);
+  font-size: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+#advanced-section .advanced-card {
+  display: flex;
+  width: 1440px;
+  max-width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 120px;
+  gap: 30px;
+}
+#advanced-section .advanced-card .card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 200px;
+  gap: 20px;
+  z-index: 1;
+}
+#advanced-section .advanced-card .card:nth-child(3) {
+  margin-top: 50px;
+}
+#advanced-section .advanced-card .card:nth-child(4) {
+  margin-top: 100px;
+}
+#advanced-section .advanced-card .card .card-icon {
+  position: relative;
+}
+#advanced-section .advanced-card .card .card-icon img {
+  position: absolute;
+  margin-top: -80px;
+  background-color: var(--dark-violet);
+  padding: 20px;
+  border-radius: 999px;
+}
+#advanced-section .advanced-card .card .card-title {
+  color: var(--very-dark-blue);
+  font-weight: 700;
+  font-size: 24px;
+  margin-top: 20px;
+}
+#advanced-section .advanced-card .card .card-description {
+  color: var(--grayish-violet);
+  font-size: 20px;
+  line-height: 1.2;
+}
+.line {
+  width: 70%;
+  height: 10px;
+  background-color: var(--cyan);
+  position: absolute;
+  top: 220px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+#gray-background {
+  background-color: #e3e3e3;
+  height: 800px;
+  margin-top: -100px;
+  padding-bottom: 100px;
+}
+
+#boost-section {
+  background-image: url("../../assets/bg-boost-desktop.svg");
+  background-size: 100%;
+  height: 300px;
+  background-color: var(--dark-violet);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#boost-section .boost-title {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+#boost-section button {
+  border-radius: none;
+  border-radius: 9999px;
+  background-color: var(--cyan);
+  color: #fff;
+  padding: 20px 50px;
+  border: none;
+}
+#footer-section {
+  background-color: var(--very-dark-violet);
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+}
+
+#footer-section .footer-menu,
+#footer-section .footer-icon,
+#footer-section .footer-social-menu {
+  margin-top: 30px;
+  flex: 2;
+}
+#footer-section .footer-icon {
+  flex: 4;
+  display: flex;
+  justify-content: start;
+  margin-left: 50px;
+}
+#footer-section .footer-menu div {
+  color: var(--grayish-violet);
+  margin-bottom: 20px;
+}
+#footer-section .footer-menu div:first-child {
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 40px;
+}
+#footer-section .footer-social-menu {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
 }
