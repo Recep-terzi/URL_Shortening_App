@@ -13,10 +13,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { TiTick } from "react-icons/ti";
 import { useRef } from "react";
 const Home = () => {
   const [url, setUrl] = useState();
   const [data, setData] = useState();
+  const [coppy, setCoppy] = useState();
   const hamburgerOpen = useRef(null);
   const hamburgerClose = useRef(null);
   const mobileNav = useRef(null);
@@ -44,9 +46,10 @@ const Home = () => {
   const copy = (e) => {
     var text = copyText.current;
     var copy = text.innerHTML;
-    console.log(copy);
+    navigator.clipboard.writeText(copy);
+    setCoppy(copy);
   };
-  console.log(data);
+  console.log(copy);
   return (
     <>
       <div className="container">
@@ -115,39 +118,72 @@ const Home = () => {
           <div className="bg">
             <div className="container">
               <div id="search-result">
-                <div className="result-title" ref={copyText}>
-                  {data.original_link}
-                </div>
+                <div className="result-title">{data.original_link}</div>
                 <div className="result-left">
-                  <div className="result-left-link">{data.full_share_link}</div>
-                  <button onClick={() => copy(data.full_share_link)}>
-                    Copy
-                  </button>
+                  <div className="result-left-link" ref={copyText}>
+                    {data.full_share_link}
+                  </div>
+
+                  {coppy === data.full_share_link ? (
+                    <button>
+                      Copied <TiTick />
+                    </button>
+                  ) : (
+                    <button onClick={() => copy(data.full_share_link)}>
+                      Copy
+                    </button>
+                  )}
                 </div>
               </div>
               <div id="search-result">
                 <div className="result-title">{data.original_link}</div>
                 <div className="result-left">
-                  <div className="result-left-link">{data.full_short_link}</div>
-                  <button>Copy</button>
+                  <div className="result-left-link" ref={copyText}>
+                    {data.full_short_link}
+                  </div>
+                  {coppy === data.full_short_link ? (
+                    <button>
+                      Copied <TiTick />
+                    </button>
+                  ) : (
+                    <button onClick={() => copy(data.full_short_link)}>
+                      Copy
+                    </button>
+                  )}
                 </div>
               </div>{" "}
               <div id="search-result">
                 <div className="result-title">{data.original_link}</div>
                 <div className="result-left">
-                  <div className="result-left-link">
+                  <div className="result-left-link " ref={copyText}>
                     {data.full_short_link2}
                   </div>
-                  <button>Copy</button>
+                  {coppy === data.full_short_link2 ? (
+                    <button>
+                      Copied <TiTick />
+                    </button>
+                  ) : (
+                    <button onClick={() => copy(data.full_short_link2)}>
+                      Copy
+                    </button>
+                  )}
                 </div>
               </div>{" "}
               <div id="search-result">
                 <div className="result-title">{data.original_link}</div>
                 <div className="result-left">
-                  <div className="result-left-link">
+                  <div className="result-left-link" ref={copyText}>
                     {data.full_short_link3}
                   </div>
-                  <button>Copy</button>
+                  {coppy === data.full_short_link3 ? (
+                    <button>
+                      Copied <TiTick />
+                    </button>
+                  ) : (
+                    <button onClick={() => copy(data.full_short_link3)}>
+                      Copy
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
