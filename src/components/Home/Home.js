@@ -40,7 +40,7 @@ const Home = () => {
       navMobile.classList.remove("open");
     });
   }, []);
-
+  console.log(data);
   return (
     <>
       <div className="container">
@@ -103,50 +103,93 @@ const Home = () => {
             <button type="submit"> Shorten It! </button>
           </form>
         </div>
-        <div id="advanced-section">
-          <div className="advanced-title">Advanced Statistics</div>
-          <div className="advanced-description">
-            Track how your links are performing across the web with our advanced
-            statistics dashboard.
+      </div>
+      {data ? (
+        <>
+          <div className="bg">
+            <div className="container">
+              <div id="search-result">
+                <div className="result-title">{data.original_link}</div>
+                <div className="result-left">
+                  <div className="result-left-link">{data.full_share_link}</div>
+                  <button>Copy</button>
+                </div>
+              </div>
+              <div id="search-result">
+                <div className="result-title">{data.original_link}</div>
+                <div className="result-left">
+                  <div className="result-left-link">{data.full_short_link}</div>
+                  <button>Copy</button>
+                </div>
+              </div>{" "}
+              <div id="search-result">
+                <div className="result-title">{data.original_link}</div>
+                <div className="result-left">
+                  <div className="result-left-link">
+                    {data.full_short_link2}
+                  </div>
+                  <button>Copy</button>
+                </div>
+              </div>{" "}
+              <div id="search-result">
+                <div className="result-title">{data.original_link}</div>
+                <div className="result-left">
+                  <div className="result-left-link">
+                    {data.full_short_link3}
+                  </div>
+                  <button>Copy</button>
+                </div>
+              </div>
+            </div>
           </div>
+        </>
+      ) : (
+        <></>
+      )}
+      <div id="advanced-section">
+        <div className="advanced-title">Advanced Statistics</div>
+        <div className="advanced-description">
+          Track how your links are performing across the web with our advanced
+          statistics dashboard.
+        </div>
 
-          <div className="advanced-card">
-            <div className="line"></div>
-            <div className="card">
-              <div className="card-icon">
-                <img src={brandIcon} alt="" />
-              </div>
-              <div className="card-title">Brand Recognition</div>
-              <div className="card-description">
-                Boost your brand recognition with each click. Generic links
-                don’t mean a thing. Branded links help instil confidence in your
-                content.
-              </div>
+        <div className="advanced-card">
+          <div className="line"></div>
+          <div className="card">
+            <div className="card-icon">
+              <img src={brandIcon} alt="" />
             </div>
-            <div className="card">
-              <div className="card-icon">
-                <img src={detailedIcon} alt="" />
-              </div>
-              <div className="card-title">Detailed Records</div>
-              <div className="card-description">
-                Gain insights into who is clicking your links. Knowing when and
-                where people engage with your content helps inform better
-                decisions.
-              </div>
+            <div className="card-title">Brand Recognition</div>
+            <div className="card-description">
+              Boost your brand recognition with each click. Generic links don’t
+              mean a thing. Branded links help instil confidence in your
+              content.
             </div>
-            <div className="card">
-              <div className="card-icon">
-                <img src={fullyIcon} alt="" />
-              </div>
-              <div className="card-title">Fully Customizable</div>
-              <div className="card-description">
-                Improve brand awareness and content discoverability through
-                customizable links, supercharging audience engagement.
-              </div>
+          </div>
+          <div className="card">
+            <div className="card-icon">
+              <img src={detailedIcon} alt="" />
+            </div>
+            <div className="card-title">Detailed Records</div>
+            <div className="card-description">
+              Gain insights into who is clicking your links. Knowing when and
+              where people engage with your content helps inform better
+              decisions.
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-icon">
+              <img src={fullyIcon} alt="" />
+            </div>
+            <div className="card-title">Fully Customizable</div>
+            <div className="card-description">
+              Improve brand awareness and content discoverability through
+              customizable links, supercharging audience engagement.
             </div>
           </div>
         </div>
       </div>
+
       <div id="gray-background"></div>
       <div id="boost-section">
         <div className="boost-title">Boost your links today</div>
