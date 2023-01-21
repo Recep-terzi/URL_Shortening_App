@@ -20,6 +20,7 @@ const Home = () => {
   const hamburgerOpen = useRef(null);
   const hamburgerClose = useRef(null);
   const mobileNav = useRef(null);
+  const copyText = useRef(null);
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -40,6 +41,11 @@ const Home = () => {
       navMobile.classList.remove("open");
     });
   }, []);
+  const copy = (e) => {
+    var text = copyText.current;
+    var copy = text.innerHTML;
+    console.log(copy);
+  };
   console.log(data);
   return (
     <>
@@ -109,10 +115,14 @@ const Home = () => {
           <div className="bg">
             <div className="container">
               <div id="search-result">
-                <div className="result-title">{data.original_link}</div>
+                <div className="result-title" ref={copyText}>
+                  {data.original_link}
+                </div>
                 <div className="result-left">
                   <div className="result-left-link">{data.full_share_link}</div>
-                  <button>Copy</button>
+                  <button onClick={() => copy(data.full_share_link)}>
+                    Copy
+                  </button>
                 </div>
               </div>
               <div id="search-result">
