@@ -256,7 +256,7 @@ button {
 #footer-section .footer-icon {
   flex: 4;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   margin-left: 50px;
 }
 #footer-section .footer-menu div {
