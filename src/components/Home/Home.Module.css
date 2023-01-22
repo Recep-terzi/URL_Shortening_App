@@ -220,7 +220,7 @@ body {
 /* Boost Section */
 #boost-section {
   background-image: url("../../assets/bg-boost-desktop.svg");
-  background-size: 100%;
+  background-size: cover;
   height: 300px;
   background-color: var(--dark-violet);
   display: flex;
