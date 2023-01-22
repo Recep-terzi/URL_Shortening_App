@@ -22,7 +22,6 @@ const Home = () => {
   const hamburgerOpen = useRef(null);
   const hamburgerClose = useRef(null);
   const mobileNav = useRef(null);
-  const copyText = useRef(null);
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -44,12 +43,10 @@ const Home = () => {
     });
   }, []);
   const copy = (e) => {
-    var text = copyText.current;
-    var copy = text.innerHTML;
-    navigator.clipboard.writeText(copy);
-    setCoppy(copy);
+    navigator.clipboard.writeText(e);
+    setCoppy(e);
   };
-  console.log(copy);
+  console.log(coppy);
   return (
     <>
       <div className="container">
@@ -120,10 +117,7 @@ const Home = () => {
               <div id="search-result">
                 <div className="result-title">{data.original_link}</div>
                 <div className="result-left">
-                  <div className="result-left-link" ref={copyText}>
-                    {data.full_share_link}
-                  </div>
-
+                  <div className="result-left-link">{data.full_share_link}</div>
                   {coppy === data.full_share_link ? (
                     <button>
                       Copied <TiTick />
@@ -138,9 +132,7 @@ const Home = () => {
               <div id="search-result">
                 <div className="result-title">{data.original_link}</div>
                 <div className="result-left">
-                  <div className="result-left-link" ref={copyText}>
-                    {data.full_short_link}
-                  </div>
+                  <div className="result-left-link">{data.full_short_link}</div>
                   {coppy === data.full_short_link ? (
                     <button>
                       Copied <TiTick />
@@ -155,7 +147,7 @@ const Home = () => {
               <div id="search-result">
                 <div className="result-title">{data.original_link}</div>
                 <div className="result-left">
-                  <div className="result-left-link " ref={copyText}>
+                  <div className="result-left-link ">
                     {data.full_short_link2}
                   </div>
                   {coppy === data.full_short_link2 ? (
@@ -172,9 +164,10 @@ const Home = () => {
               <div id="search-result">
                 <div className="result-title">{data.original_link}</div>
                 <div className="result-left">
-                  <div className="result-left-link" ref={copyText}>
+                  <div className="result-left-link">
                     {data.full_short_link3}
                   </div>
+
                   {coppy === data.full_short_link3 ? (
                     <button>
                       Copied <TiTick />
